@@ -13,6 +13,27 @@
 		$panels = $main.children('.panel'),
 		$nav = $('#nav'), $nav_links = $nav.children('a');
 
+	// Navigation active indicator by page path.
+	function setNavActiveByPage() {
+		var page = window.location.pathname.split('/').pop();
+		var target;
+
+		if (page === '' || page === 'index.html')
+			target = $nav_links.filter('[href="#"]');
+		else if (page === 'about_me.html')
+			target = $nav_links.filter('[href="about_me.html"]');
+		else if (page === 'work.html')
+			target = $nav_links.filter('[href="work.html"]');
+		else
+			target = $nav_links.filter('[href="#"]');
+
+		$nav_links.removeClass('active');
+		if (target.length)
+			target.addClass('active');
+	}
+
+	setNavActiveByPage();
+
 	// Breakpoints.
 		breakpoints({
 			xlarge:  [ '1281px',  '1680px' ],
