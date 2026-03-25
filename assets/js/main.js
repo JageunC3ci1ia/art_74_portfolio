@@ -22,8 +22,9 @@
 		if (page === 'about_me.html')
 			return $nav_links.filter('[href="about_me.html"]');
 		if (page === 'work.html')
-			return $nav_links.filter('[href="work.html"]');
-
+		return $nav_links.filter('[href="work.html"]');
+	if (page === 'contact.html')
+		return $nav_links.filter('[href="contact.html"]');
 		return $nav_links.filter('[href="#"]');
 	}
 
