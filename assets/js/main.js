@@ -14,25 +14,25 @@
 		$nav = $('#nav'), $nav_links = $nav.children('a');
 
 	// Navigation active indicator by page path.
-	function setNavActiveByPage() {
+	function getNavLinkByPage() {
 		var page = window.location.pathname.split('/').pop();
-		var target;
 
 		if (page === '' || page === 'index.html')
-			target = $nav_links.filter('[href="#"]');
-		else if (page === 'about_me.html')
-			target = $nav_links.filter('[href="about_me.html"]');
-		else if (page === 'work.html')
-			target = $nav_links.filter('[href="work.html"]');
-		else
-			target = $nav_links.filter('[href="#"]');
+			return $nav_links.filter('[href="#"]');
+		if (page === 'about_me.html')
+			return $nav_links.filter('[href="about_me.html"]');
+		if (page === 'work.html')
+			return $nav_links.filter('[href="work.html"]');
 
-		$nav_links.removeClass('active');
-		if (target.length)
-			target.addClass('active');
+		return $nav_links.filter('[href="#"]');
 	}
 
-	setNavActiveByPage();
+	function setNavActiveByPage() {
+		$nav_links.removeClass('active');
+		var $link = getNavLinkByPage();
+		if ($link.length)
+			$link.addClass('active');
+	}
 
 	// Breakpoints.
 		breakpoints({
@@ -86,13 +86,20 @@
 
 					}
 
-				// No panel/link? Default to first.
-					if (!$panel
-					||	$panel.length == 0) {
+// No panel/link? Try path-based nav selection, otherwise default to first.
+			if (!$panel
+			||	$panel.length == 0) {
 
-						$panel = $panels.first();
-						$link = $nav_links.first();
+				$panel = $panels.first();
 
+			}
+
+			if (!$link
+			||	$link.length == 0) {
+				$link = getNavLinkByPage();
+
+				if (!$link.length)
+				$link = $nav_links.first();
 					}
 
 				// Deactivate all panels except this one.
