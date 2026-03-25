@@ -134,11 +134,14 @@
 
 					}
 
-				// No panel/link? Default to first.
-					else {
+// No panel/link? Try path-based nav selection first, otherwise default to first.
+			else {
 
-						$panel = $panels.first();
-						$link = $nav_links.first();
+				$panel = $panels.first();
+				$link = getNavLinkByPage();
+
+				if (!$link.length)
+					$link = $nav_links.first();
 
 					}
 
