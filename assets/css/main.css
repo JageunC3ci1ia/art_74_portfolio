@@ -1810,7 +1810,10 @@ input, select, textarea {
 				border-bottom: solid 0em #ffffff;
 				border-left: solid 0.5em transparent;
 				border-right: solid 0.5em transparent;
-				transition: none;
+				-moz-transition: border-bottom-width .25s ease-in-out;
+				-webkit-transition: border-bottom-width .25s ease-in-out;
+				-ms-transition: border-bottom-width .25s ease-in-out;
+				transition: border-bottom-width .25s ease-in-out;
 			}
 
 			#nav a span {
