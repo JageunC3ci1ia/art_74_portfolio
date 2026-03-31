@@ -1855,10 +1855,6 @@ input, select, textarea {
 					opacity: 1.0;
 				}
 
-				#nav a:hover:after {
-					border-bottom-width: 0 !important;
-				}
-
 			#nav a:not(.active):after {
 				border-bottom-width: 0 !important;
 			}
