@@ -18,14 +18,14 @@
 		var page = window.location.pathname.split('/').pop();
 
 		if (page === '' || page === 'index.html')
-			return $nav_links.filter('[href="#"]');
+			return $nav_links.filter('[href$="index.html"], [href="#"]');
 		if (page === 'about_me.html')
-			return $nav_links.filter('[href="about_me.html"]');
+			return $nav_links.filter('[href$="about_me.html"]');
 		if (page === 'work.html' || page === 'work_pixel_art.html' || page.indexOf('work_') === 0)
-			return $nav_links.filter('[href="work.html"]');
+			return $nav_links.filter('[href$="work.html"]');
 		if (page === 'contact.html')
-			return $nav_links.filter('[href="contact.html"]');
-		return $nav_links.filter('[href="#"]');
+			return $nav_links.filter('[href$="contact.html"]');
+		return $nav_links.filter('[href$="index.html"], [href="#"]');
 	}
 
 	function setNavActiveByPage() {
