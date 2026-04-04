@@ -2042,7 +2042,7 @@ input, select, textarea {
 						object-position: center;
 					}
 
-					#main > .panel.intro .pic .arrow {
+#main > .panel .pic .arrow {
 						display: block;
 						position: absolute;
 						right: 0;
@@ -2074,7 +2074,7 @@ input, select, textarea {
 							text-indent: -9999px;
 						}
 
-					#main > .panel.intro .pic:hover .arrow {
+#main > .panel .pic:hover .arrow {
 						width: 3em;
 						padding-right: 0.25em;
 					}
